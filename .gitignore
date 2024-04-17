@@ -1,0 +1,19 @@
+frapi/admin/
+frapi/custom/library/
+frapi/custom/config/configurations.xml
+frapi/custom/config/configurations - prod.xml
+frapi/docs/
+frapi/library/
+frapi/public/
+frapi/tests/
+phpfiles/apc.php
+antibrute
+appstore
+frapi/
+googleplay
+Widget/
+usersdata/
+trash/
+phpfiles/ini/artpleasenearby-dev.ini
+phpfiles/ini/artpleasenearby-pp.ini
+phpfiles/ini/artpleasenearby-prod.ini

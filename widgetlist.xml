@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rsp stat="ok">
+<list>
+<widget id="POC_AN_4_1">
+<title>POC_AN_4_1</title>
+<compression size="717108" type="zip"/>
+<description>POC ART NEARBY SDK 4.1</description>
+<download>http://192.168.1.40/Widget/POC_AN_4_1_0.100_Europe_20160326.zip</download>
+</widget>
+</list>
+</rsp>

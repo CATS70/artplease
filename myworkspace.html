@@ -1,0 +1,1290 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>My workspace</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+	 .error {
+		color:#FF0000;
+		}
+	</style>
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.3.1.min.css" />
+	
+	<link rel="stylesheet" href="css/jquery-te-1.4.0.css" />
+	
+	<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.min.js"></script>	
+	<script type="text/javascript" src="js/jquery-te-1.4.0.min.js"></script>
+	<!--<script type="text/javascript" src ="https://www.paypalobjects.com/js/external/dg.js" ></script>-->
+	<script src="js/jquery.tcycle.js"></script>
+	<script type="text/javascript" src="js/utils.1.0.js"></script>
+	<script type="text/javascript" src="js/moment-with-langs.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.3.1.min.js"></script>	
+	<script>
+
+	</script>
+</head>
+<body id="bodyworkspace">
+<div data-role="page" id="pageMyWorkspace" data-dom-cache="false">
+	<div id="headerpage" data-role="header" data-position="fixed" style="overflow:hidden;">
+		<div class="ui-grid-b my-breakpoint" id="headerline">
+		  <div class="ui-block-a"><img id="headerimg" src="img/logo.png" style ="max-width: 100%; width: auto;height: auto;-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;box-sizing: border-box"></div>
+		  <!--<div class="ui-block-b">BANNER</div>-->
+		  <div class="ui-block-b"></div>
+		  <div class="ui-block-c"><a href="/connexion.html" data-dom-cache="false" style="visibility:hidden;" id="signinlink-myworkspace" data-ajax="false" title="a-signin-myworkspace">Sign in</a><a href="/deconnexion.html" data-dom-cache="false" style="visibility:hidden" id="signoutlink-myworkspace" data-ajax="false" title="a-signout-myworkspace">Sign out</a></div>
+	</div>
+
+		<div data-role="navbar">
+			<ul>
+				<li><a href="/index.html" data-icon="home" data-dom-cache="false" data-ajax="false" id="gotoHome">Home</a></li>
+				<li><a href="/createmessage.html" data-icon="info" data-dom-cache="false" data-ajax="false" id="gotoContact">Contact</a></li>
+				<li><a href="" data-icon="bars" data-dom-cache="false" data-ajax="false" id="gotoAPProject">Art Please Project</a></li>
+				<li><a href="/createaccount.html" data-icon="star" data-dom-cache="false" data-ajax="false" id="gotoSignUp">Sign up</a></li>
+				<li><a href="/myworkspace.html" data-dom-cache="false" data-ajax="false" data-icon="edit" class="ui-btn-active ui-state-persist"  id="gotoMyWs">My workspace</a></li>
+			</ul>
+		</div><!-- /navbar -->
+
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div data-role="collapsible" data-inset="false" data-theme="a" id="yourservicescollapsible">
+			<h4 id="toto">Your services</h4>
+				<form id="yourservices">
+						<label>Mark the service you want, and then click on "Payment" button:</label>
+						<a href="#serviceshelp" data-role="button" data-transition="pop" data-icon="info" data-iconpos="notext" data-theme="c" data-inline="true">Info</a>
+						<a href="#serviceshelpvideo" data-role="button" data-transition="pop" data-icon="gear" data-iconpos="notext" data-theme="c" data-inline="true">Help video</a>
+					<fieldset data-role="controlgroup">
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+								<input type="checkbox" name="checkbox-dir" id="checkbox-dir" disabled="disabled" checked="" >
+								<label for="checkbox-dir" style="border : none;">Insert my gallery in the Art Please Directory (free) - exp. date : lifetime</label>
+							</div>
+
+							<div class="ui-block-b">
+							</div>
+							
+							<div class="ui-block-a">
+								<input type="checkbox" name="myWScheckbox-tel" id="myWScheckbox-tel" onclick="handleOptions(1,this.checked)">
+								<label for="myWScheckbox-tel" style="border : none;">Make my telephone # visible (0.95 € p. month) - exp. date : </label>
+								<label for="expDateLabel-tel" style="border : none;"></label>
+							</div>
+							
+							<div class="ui-block-b">
+<!-- 									<a href="#" data-role="button" data-inline="true" data-icon="refresh" id="renewTel" style="border : none;" onclick="renewCancelOptions(1,true)">Renew</a>
+									<a href="#" data-role="button" data-inline="true" data-icon="delete" id="renewCancelTel" style="border : none;">Cancel renew</a>
+ -->								
+									<a href="#" data-role="button" data-inline="true" data-icon="refresh" id="renewTel" style="border : none;" onclick="renewCancelOptions(1,true);">Renew</a>
+									<a href="#" data-role="button" data-inline="true" data-icon="delete" id="renewCancelTel" style="border : none;" onclick="renewCancelOptions(1,false);">Cancel renew</a>
+
+							</div>
+							
+							<div class="ui-block-a">
+								<input type="checkbox" name="myWScheckbox-url" id="myWScheckbox-url" onclick="handleOptions(2,this.checked)">
+								<label for="myWScheckbox-url" style="border : none;">Make my web site adress visible (0.95 € p. month) - exp. date : </label>
+								<label for="expDateLabel-url" style="border : none;"></label>
+							</div>
+							
+							<div class="ui-block-b">
+									<a href="#" data-role="button" data-inline="true" data-icon="refresh" id="renewUrl" style="border : none;" onclick="renewCancelOptions(2,true);">Renew</a>
+									<a href="#" data-role="button" data-inline="true" data-icon="delete" id="renewCancelUrl" style="border : none;" onclick="renewCancelOptions(2,false);">Cancel renew</a>
+									
+							</div>
+							
+							<div class="ui-block-a">
+								<input type="checkbox" name="myWScheckbox-show" id="myWScheckbox-show" onclick="handleOptions(3,this.checked)">
+								<label for="myWScheckbox-show" style="border : none;">Activate slideshow (2.95 € p. month) - exp. date : </label>
+								<label for="expDateLabel-show" style="border : none;"></label>
+								</div>
+							
+							<div class="ui-block-b">
+									<a href="#" data-role="button" data-inline="true" data-icon="refresh" id="renewSlideShow" style="border : none;" onclick="renewCancelOptions(3,true);">Renew</a>
+									<a href="#" data-role="button" data-inline="true" data-icon="delete" id="renewCancelSlideShow" style="border : none;" onclick="renewCancelOptions(3,false);">Cancel renew</a>
+
+							</div>
+							
+						</div>
+					</fieldset>
+					<label for="totalcurrentservice-lab">Total current subscriptions : XX.XX€</label>
+					<label for="totalnewservice-lab">Total new subscriptions : -</label>
+					<input type="submit" data-icon="check" data-iconpos="right" value="Payment" disabled="disabled" id="payementButton">
+				</form>
+		</div>
+
+		<div data-role="collapsible" data-inset="false" data-theme="a" id="galdatacollapsible">
+			<h4 id="testc">Your gallery data</h4>
+
+			<form id="latlongform" data-ajax="false" method="post">
+					<label for="latlong-lab">Latitude and longitude of your gallery (click on "Get lat and long" button to locate your workplace):</label>
+					<a href="#locationhelp" data-role="button" data-transition="pop" data-icon="info" data-iconpos="notext" data-theme="c" data-inline="true">Info</a>
+					<a href="#latlonghelpvideo" data-role="button" data-transition="pop" data-icon="gear" data-iconpos="notext" data-theme="c" data-inline="true">Help video</a>
+					<BR>
+					<label for="latitude-lab">Latitude:</label>
+					<input type="text" name="latitudeid" id="latitudeid" value="">
+					<label for="longitude-lab">Longitude:</label>
+					<input type="text" name="longitudeid" id="longitudeid" value="">					  					
+					<div class="ui-grid-a my-breakpoint" id="geocoord">
+					  <div class="ui-block-a">
+						<img id="mapid" src="img/logoGoogle.png">
+					  </div> <!---->
+					  <div class="ui-block-b">
+						<a href="#" data-role="button" onClick="getGeocode()" id="getlatlongbutton" >Get lat and long</a>
+						<!--<button  onClick="getGeocode()">Get lat and long</button>-->
+						<label for="multipleaddress" style="border : none;"></label>
+						<select name="addresslist" id="addresslist" placeholder="addresslist" onclick="refreshMap()"></select>
+					  </div>
+					</div>
+					<input type="submit" data-icon="check" data-iconpos="right" value="Save" id="savelatlong">
+
+			</form>
+			<BR>
+			<HR SIZE="4" color="#000000">
+			<BR>
+			<form id="googleidform">
+					<label for="googleid-lab">Google Id of your gallery:</label>
+					<a href="#googleidhelp" data-role="button" data-transition="pop" data-icon="info" data-iconpos="notext" data-theme="c" data-inline="true">Info</a>
+					<a href="#googleidhelpvideo" data-role="button" data-transition="pop" data-icon="gear" data-iconpos="notext" data-theme="c" data-inline="true">Help video</a>
+					<div class="ui-grid-a my-breakpoint" id="headerline">
+					  <div class="ui-block-a">
+						<input type="text" name="googleid" id="googleid" disabled="disabled" value="">
+						<input type="text" name="googleref" id="googleref" disabled="disabled" value="">
+					  </div> <!---->
+					  <div class="ui-block-b">
+						<a href="/googleidlist.html" data-role="button" id="getgoogleidbutton" >Get Google id</a>
+						<img src="img/powered-by-google-on-white.png">
+					  </div><!--<button  onClick="buildGoogleIdList()">Get Google id</button></div>-->
+					</div>
+					
+					<input type="submit" data-icon="check" data-iconpos="right" value="Save" id="savegoogleid">
+			</form>
+			<BR>
+			<HR SIZE="4" color="#000000">
+			<BR>
+			<label for="googleid-lab">Enter information visible :</label>
+			<a href="#descriptionhelpvideo" data-role="button" data-transition="pop" data-icon="gear" data-iconpos="notext" data-theme="c" data-inline="true">Help video</a>			
+			<BR>
+			<a href="#" data-role="button" onClick='simulatedevice()' id='simulatedevicebutton'>See the result in a handheld</a>
+			<!--<form id="galdescform">-->
+					<label for="galdesc-lab">Description of your gallery (Max. 4,000 char.):</label>
+					<textarea class="editor" cols="40" rows="8" name="galdescript" id="galdescript"> </textarea>
+					
+					<!--<input type="submit" data-ajax="false" onclick="testgaldesc()" data-icon="check" data-iconpos="right" value="Submit">-->
+					<button  data-ajax="false" onClick="validateFormGalDesc()" id="savegaldesc">Save</button>
+					
+			<!--</form>-->
+			<a href="#pictureshelpvideo" data-role="button" data-transition="pop" data-icon="gear" data-iconpos="notext" data-theme="c" data-inline="true">Help video</a>			
+			<form action="/phpfiles/fileprocessing.php" method="post" enctype="multipart/form-data" id="galphoto1form" data-ajax="false">
+					<label for="galphoto1-lab">1st photo of your gallery (file size must be less than 15ko):</label>
+					
+					<div class="ui-grid-a my-breakpoint" id="headerline">
+					  <div class="ui-block-a"><img id="galphoto1" src="img/logoico.png"><a href="/phpfiles/deletefile.php?id=input-galphoto1" id="delgalphoto1" data-role="button" data-icon="delete" data-inline="true" data-iconpos="notext" data-ajax="false"></a></div>
+					  <div class="ui-block-b">
+							<input type="file" name="input-galphoto1" id="input-galphoto1" value="">
+							<input type="hidden" name="flagphoto" id="flagphoto" value="galphoto1">
+					  </div>
+					</div>
+					
+					
+					<input type="submit" data-icon="check" data-iconpos="right" value="Save" id="savephoto1">
+			</form>
+			<form action="/phpfiles/fileprocessing.php" method="post" enctype="multipart/form-data" id="galphoto2form" data-ajax="false">
+					<label for="galphoto2-lab">2nd photo of your gallery (file size must be less than 15ko):</label>
+					
+					<div class="ui-grid-a my-breakpoint" id="headerline">
+					  <div class="ui-block-a"><img id="galphoto2" src="img/logoico.png"><a href="/phpfiles/deletefile.php?id=input-galphoto2" id="delgalphoto2" data-role="button" data-icon="delete" data-inline="true" data-iconpos="notext" style="visibility:hidden;" data-ajax="false"></a></div>
+					  <div class="ui-block-c">
+							<input type="file" name="input-galphoto2" id="input-galphoto2" value="">
+							<input type="hidden" name="flagphoto" id="flagphoto" value="galphoto2">
+					  </div>
+					</div>
+					
+					
+					<input type="submit" data-icon="check" data-iconpos="right" value="Save"  id="savephoto2">
+			</form>
+			<BR>
+			<HR SIZE="4" color="#000000">
+			<BR>
+			<a href="#slideshowhelpvideo" data-role="button" data-transition="pop" data-icon="gear" data-iconpos="notext" data-theme="c" data-inline="true">Help video</a>			
+			<form action="/phpfiles/fileprocessing.php" method="post" enctype="multipart/form-data" id="slidephoto1form" data-ajax="false">
+					<label for="slidephoto1-lab">1st photo of your slideshow (file size must be less than 15ko):</label>
+					
+					<div class="ui-grid-a my-breakpoint" id="headerline">
+					  <div class="ui-block-a"><img id="slidephoto1" src="img/logoico.png"><a href="/phpfiles/deletefile.php?id=slidephoto1form" id="delslidephoto1form" data-role="button" data-icon="delete" data-inline="true" data-iconpos="notext" style="visibility:hidden;" data-ajax="false"></a></div>
+					  <div class="ui-block-b">
+							<input type="file" name="input-slidephoto1" id="input-slidephoto1" value="">
+							<input type="hidden" name="flagphoto" id="flagphoto" value="slidephoto1">
+					  </div>
+					</div>
+
+					<label for="slidephoto1comment-lab">Comment(Max. 90 char.):</label>
+					<textarea cols="40" rows="1" name="slidephotocomment" id="slidephoto1comment"></textarea>
+					<input type="hidden" name="oldslidephotocomment" id="oldslidephoto1comment"></textarea>
+					<input type="hidden" name="noGalData" id="noGalData1" value="1">
+					
+					<input type="submit" data-icon="check" data-iconpos="right" value="Save" id="savessphoto1">
+			</form>
+			<form action="/phpfiles/fileprocessing.php" method="post" enctype="multipart/form-data" id="slidephoto2form" data-ajax="false">
+					<label for="slidephoto2-lab">2nd photo of your slideshow (file size must be less than 15ko):</label>
+					
+					<div class="ui-grid-a my-breakpoint" id="headerline">
+					  <div class="ui-block-a"><img id="slidephoto2" src="img/logoico.png"><a href="/phpfiles/deletefile.php?id=slidephoto2form" id="delslidephoto2form" data-role="button" data-icon="delete" data-inline="true" data-iconpos="notext" style="visibility:hidden;" data-ajax="false"></a></div>
+					  <div class="ui-block-b">
+							<input type="file" name="input-slidephoto2" id="input-slidephoto2" value="">
+							<input type="hidden" name="flagphoto" id="flagphoto" value="slidephoto2">
+					  </div>
+					</div>
+					
+					<label for="slidephoto2comment-lab">Comment(Max. 90 char.):</label>
+					<textarea cols="40" rows="1" name="slidephotocomment" id="slidephoto2comment"></textarea>
+					<input type="hidden" name="oldslidephotocomment" id="oldslidephoto2comment"></textarea>
+					<input type="hidden" name="noGalData" id="noGalData2" value="1">
+					
+					<input type="submit" data-icon="check" data-iconpos="right" value="Save" id="savessphoto2">
+			</form>
+			<form  action="/phpfiles/fileprocessing.php" method="post" enctype="multipart/form-data" id="slidephoto3form" data-ajax="false">
+					<label for="slidephoto3-lab">3rd photo of your slideshow (file size must be less than 15ko):</label>
+					<div class="ui-grid-a my-breakpoint" id="headerline">
+					  <div class="ui-block-a"><img id="slidephoto3" src="img/logoico.png"><a href="/phpfiles/deletefile.php?id=slidephoto3form" id="delslidephoto3form" data-role="button" data-icon="delete" data-inline="true" data-iconpos="notext" style="visibility:hidden;" data-ajax="false"></a></div>
+					  <div class="ui-block-b">
+							<input type="file" name="input-slidephoto3" id="input-slidephoto3" value="">
+							<input type="hidden" name="flagphoto" id="flagphoto" value="slidephoto3">
+					  </div>
+					</div>
+					
+					<label for="slidephoto3comment-lab">Comment(Max. 90 char.):</label>
+					<textarea cols="40" rows="1" name="slidephotocomment" id="slidephoto3comment"></textarea>
+					<input type="hidden" name="oldslidephotocomment" id="oldslidephoto3comment"></textarea>
+					<input type="hidden" name="noGalData" id="noGalData3" value="1">
+					
+					<input type="submit" data-icon="check" data-iconpos="right" value="Save" id="savessphoto3">
+			</form>
+		</div>
+		
+		<div data-role="collapsible" data-inset="false" data-theme="a" id="youreventscollapsible">
+			<h4 id="yourevents">Your events</h4>
+			<a href="#youreventshelpvideo" data-role="button" data-transition="pop" data-icon="gear" data-iconpos="notext" data-theme="c" data-inline="true">Help video</a>
+			<a href="#addanevent" data-role="button" id="addeventbutton">add an event</a>
+			<label id="eventsnumber"></label>
+			<ul data-role="listview" data-inset="true" data-split-icon="delete" id="galleryeventslist">
+			</ul>
+		</div>
+		
+		<div data-role="collapsible" data-inset="false" data-theme="a" id="accountdatacollapsible">
+			<h4>Your account data</h4>
+			<form id="changepasswordform"  data-ajax="false" method="post">
+					<b><label for="changepassword">To change your password, enter your current password, the new password, and type again the new password for confirmation:</label></b>
+					<label for="currentpassword">Your current password:</label>
+					<input type="password" name="currentpassword" id="currentpassword" placeholder="your password" value="" autocomplete="off"/>
+
+					<label for="passwordinput">Your new password:</label>
+					<input type="password" name="passwordinput" id="passwordinput" placeholder="your new password" value="" autocomplete="off"/>
+					<label for="passwordinput2"></label>
+					<input type="password" name="passwordinput2" id="passwordinput2" placeholder="Retype your password" value="" autocomplete="off"/>
+					
+					<input type="submit" data-icon="check" data-iconpos="right" value="Save">
+			</form>
+			
+			<b><label for="otherinformation">Other informations:</label></b>
+			<form id="updateaccountform">
+					<label for="selectnativeAreU">I am:</label>
+					<select name="selectnativeAreU" id="selectnativeAreU">
+						<option value=""  selected="selected">Select</option>
+						<option value="1">An artist</option>
+						<option value="2">A gallerist</option>
+					</select>					
+					
+
+					<label for="email1">Email:</label>
+					<input type="email" data-clear-btn="true" name="email1" id="email1" placeholder="your email" value="testemail1">
+					<input type="email" data-clear-btn="true" name="email2" id="email2" placeholder="Retype your email" value="testemail2">
+					
+					<label for="fnameinput">First name:</label>
+					<input type="text" name="fnameinput" id="fnameinput" placeholder="your first name" value=""/>
+
+					<label for="llnameinput">Last name:</label>
+					<input type="text" name="lnameinput" id="lnameinput" placeholder="your last name" value=""/>
+
+					<label for="galnameinput">Gallery name:</label>
+					<input type="text" name="galnameinput" id="galnameinput" placeholder="Name of your gallery" value=""/>
+
+					<label for="street1input">Street 1:</label>
+					<input type="text" name="street1input" id="street1input" placeholder="Street 1" value=""/>
+
+					<label for="street2input">Street 2</label>
+					<input type="text" name="street2input" id="street2input" placeholder="Street 2" value=""/>
+
+					<label for="zipcodeinput">Zip code</label>
+					<input type="text" name="zipcodeinput" id="zipcodeinput" placeholder="zip code" value=""/>
+
+					<label for="cityinput">City</label>
+					<input type="text" name="cityinput" id="cityinput" placeholder="city" value=""/>
+					
+					<label for="telinput">Tel. number</label>
+					<input type="text" name="telinput" id="telinput" placeholder="telephone" value=""/>
+					
+					<select name="country" id="selectcountry" placeholder="Select Country"> 
+						<option value="" selected="selected">Select Country</option>
+						<option value="Afghanistan">Afghanistan</option> 
+						<option value="Albania">Albania</option> 
+						<option value="Algeria">Algeria</option> 
+						<option value="American Samoa">American Samoa</option> 
+						<option value="Andorra">Andorra</option> 
+						<option value="Angola">Angola</option> 
+						<option value="Anguilla">Anguilla</option> 
+						<option value="Antarctica">Antarctica</option> 
+						<option value="Antigua and Barbuda">Antigua and Barbuda</option> 
+						<option value="Argentina">Argentina</option> 
+						<option value="Armenia">Armenia</option> 
+						<option value="Aruba">Aruba</option> 
+						<option value="Australia">Australia</option> 
+						<option value="Austria">Austria</option> 
+						<option value="Azerbaijan">Azerbaijan</option> 
+						<option value="Bahamas">Bahamas</option> 
+						<option value="Bahrain">Bahrain</option> 
+						<option value="Bangladesh">Bangladesh</option> 
+						<option value="Barbados">Barbados</option> 
+						<option value="Belarus">Belarus</option> 
+						<option value="Belgium">Belgium</option> 
+						<option value="Belize">Belize</option> 
+						<option value="Benin">Benin</option> 
+						<option value="Bermuda">Bermuda</option> 
+						<option value="Bhutan">Bhutan</option> 
+						<option value="Bolivia">Bolivia</option> 
+						<option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option> 
+						<option value="Botswana">Botswana</option> 
+						<option value="Bouvet Island">Bouvet Island</option> 
+						<option value="Brazil">Brazil</option> 
+						<option value="British Indian Ocean Territory">British Indian Ocean Territory</option> 
+						<option value="Brunei Darussalam">Brunei Darussalam</option> 
+						<option value="Bulgaria">Bulgaria</option> 
+						<option value="Burkina Faso">Burkina Faso</option> 
+						<option value="Burundi">Burundi</option> 
+						<option value="Cambodia">Cambodia</option> 
+						<option value="Cameroon">Cameroon</option> 
+						<option value="Canada">Canada</option> 
+						<option value="Cape Verde">Cape Verde</option> 
+						<option value="Cayman Islands">Cayman Islands</option> 
+						<option value="Central African Republic">Central African Republic</option> 
+						<option value="Chad">Chad</option> 
+						<option value="Chile">Chile</option> 
+						<option value="China">China</option> 
+						<option value="Christmas Island">Christmas Island</option> 
+						<option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option> 
+						<option value="Colombia">Colombia</option> 
+						<option value="Comoros">Comoros</option> 
+						<option value="Congo">Congo</option> 
+						<option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option> 
+						<option value="Cook Islands">Cook Islands</option> 
+						<option value="Costa Rica">Costa Rica</option> 
+						<option value="Cote D'ivoire">Cote D'ivoire</option> 
+						<option value="Croatia">Croatia</option> 
+						<option value="Cuba">Cuba</option> 
+						<option value="Cyprus">Cyprus</option> 
+						<option value="Czech Republic">Czech Republic</option> 
+						<option value="Denmark">Denmark</option> 
+						<option value="Djibouti">Djibouti</option> 
+						<option value="Dominica">Dominica</option> 
+						<option value="Dominican Republic">Dominican Republic</option> 
+						<option value="Ecuador">Ecuador</option> 
+						<option value="Egypt">Egypt</option> 
+						<option value="El Salvador">El Salvador</option> 
+						<option value="Equatorial Guinea">Equatorial Guinea</option> 
+						<option value="Eritrea">Eritrea</option> 
+						<option value="Estonia">Estonia</option> 
+						<option value="Ethiopia">Ethiopia</option> 
+						<option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option> 
+						<option value="Faroe Islands">Faroe Islands</option> 
+						<option value="Fiji">Fiji</option> 
+						<option value="Finland">Finland</option> 
+						<option value="France">France</option> 
+						<option value="French Guiana">French Guiana</option> 
+						<option value="French Polynesia">French Polynesia</option> 
+						<option value="French Southern Territories">French Southern Territories</option> 
+						<option value="Gabon">Gabon</option> 
+						<option value="Gambia">Gambia</option> 
+						<option value="Georgia">Georgia</option> 
+						<option value="Germany">Germany</option> 
+						<option value="Ghana">Ghana</option> 
+						<option value="Gibraltar">Gibraltar</option> 
+						<option value="Greece">Greece</option> 
+						<option value="Greenland">Greenland</option> 
+						<option value="Grenada">Grenada</option> 
+						<option value="Guadeloupe">Guadeloupe</option> 
+						<option value="Guam">Guam</option> 
+						<option value="Guatemala">Guatemala</option> 
+						<option value="Guinea">Guinea</option> 
+						<option value="Guinea-bissau">Guinea-bissau</option> 
+						<option value="Guyana">Guyana</option> 
+						<option value="Haiti">Haiti</option> 
+						<option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option> 
+						<option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option> 
+						<option value="Honduras">Honduras</option> 
+						<option value="Hong Kong">Hong Kong</option> 
+						<option value="Hungary">Hungary</option> 
+						<option value="Iceland">Iceland</option> 
+						<option value="India">India</option> 
+						<option value="Indonesia">Indonesia</option> 
+						<option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option> 
+						<option value="Iraq">Iraq</option> 
+						<option value="Ireland">Ireland</option> 
+						<option value="Israel">Israel</option> 
+						<option value="Italy">Italy</option> 
+						<option value="Jamaica">Jamaica</option> 
+						<option value="Japan">Japan</option> 
+						<option value="Jordan">Jordan</option> 
+						<option value="Kazakhstan">Kazakhstan</option> 
+						<option value="Kenya">Kenya</option> 
+						<option value="Kiribati">Kiribati</option> 
+						<option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option> 
+						<option value="Korea, Republic of">Korea, Republic of</option> 
+						<option value="Kuwait">Kuwait</option> 
+						<option value="Kyrgyzstan">Kyrgyzstan</option> 
+						<option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option> 
+						<option value="Latvia">Latvia</option> 
+						<option value="Lebanon">Lebanon</option> 
+						<option value="Lesotho">Lesotho</option> 
+						<option value="Liberia">Liberia</option> 
+						<option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option> 
+						<option value="Liechtenstein">Liechtenstein</option> 
+						<option value="Lithuania">Lithuania</option> 
+						<option value="Luxembourg">Luxembourg</option> 
+						<option value="Macao">Macao</option> 
+						<option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option> 
+						<option value="Madagascar">Madagascar</option> 
+						<option value="Malawi">Malawi</option> 
+						<option value="Malaysia">Malaysia</option> 
+						<option value="Maldives">Maldives</option> 
+						<option value="Mali">Mali</option> 
+						<option value="Malta">Malta</option> 
+						<option value="Marshall Islands">Marshall Islands</option> 
+						<option value="Martinique">Martinique</option> 
+						<option value="Mauritania">Mauritania</option> 
+						<option value="Mauritius">Mauritius</option> 
+						<option value="Mayotte">Mayotte</option> 
+						<option value="Mexico">Mexico</option> 
+						<option value="Micronesia, Federated States of">Micronesia, Federated States of</option> 
+						<option value="Moldova, Republic of">Moldova, Republic of</option> 
+						<option value="Monaco">Monaco</option> 
+						<option value="Mongolia">Mongolia</option> 
+						<option value="Montserrat">Montserrat</option> 
+						<option value="Morocco">Morocco</option> 
+						<option value="Mozambique">Mozambique</option> 
+						<option value="Myanmar">Myanmar</option> 
+						<option value="Namibia">Namibia</option> 
+						<option value="Nauru">Nauru</option> 
+						<option value="Nepal">Nepal</option> 
+						<option value="Netherlands">Netherlands</option> 
+						<option value="Netherlands Antilles">Netherlands Antilles</option> 
+						<option value="New Caledonia">New Caledonia</option> 
+						<option value="New Zealand">New Zealand</option> 
+						<option value="Nicaragua">Nicaragua</option> 
+						<option value="Niger">Niger</option> 
+						<option value="Nigeria">Nigeria</option> 
+						<option value="Niue">Niue</option> 
+						<option value="Norfolk Island">Norfolk Island</option> 
+						<option value="Northern Mariana Islands">Northern Mariana Islands</option> 
+						<option value="Norway">Norway</option> 
+						<option value="Oman">Oman</option> 
+						<option value="Pakistan">Pakistan</option> 
+						<option value="Palau">Palau</option> 
+						<option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option> 
+						<option value="Panama">Panama</option> 
+						<option value="Papua New Guinea">Papua New Guinea</option> 
+						<option value="Paraguay">Paraguay</option> 
+						<option value="Peru">Peru</option> 
+						<option value="Philippines">Philippines</option> 
+						<option value="Pitcairn">Pitcairn</option> 
+						<option value="Poland">Poland</option> 
+						<option value="Portugal">Portugal</option> 
+						<option value="Puerto Rico">Puerto Rico</option> 
+						<option value="Qatar">Qatar</option> 
+						<option value="Reunion">Reunion</option> 
+						<option value="Romania">Romania</option> 
+						<option value="Russian Federation">Russian Federation</option> 
+						<option value="Rwanda">Rwanda</option> 
+						<option value="Saint Helena">Saint Helena</option> 
+						<option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option> 
+						<option value="Saint Lucia">Saint Lucia</option> 
+						<option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option> 
+						<option value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option> 
+						<option value="Samoa">Samoa</option> 
+						<option value="San Marino">San Marino</option> 
+						<option value="Sao Tome and Principe">Sao Tome and Principe</option> 
+						<option value="Saudi Arabia">Saudi Arabia</option> 
+						<option value="Senegal">Senegal</option> 
+						<option value="Serbia and Montenegro">Serbia and Montenegro</option> 
+						<option value="Seychelles">Seychelles</option> 
+						<option value="Sierra Leone">Sierra Leone</option> 
+						<option value="Singapore">Singapore</option> 
+						<option value="Slovakia">Slovakia</option> 
+						<option value="Slovenia">Slovenia</option> 
+						<option value="Solomon Islands">Solomon Islands</option> 
+						<option value="Somalia">Somalia</option> 
+						<option value="South Africa">South Africa</option> 
+						<option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option> 
+						<option value="Spain">Spain</option> 
+						<option value="Sri Lanka">Sri Lanka</option> 
+						<option value="Sudan">Sudan</option> 
+						<option value="Suriname">Suriname</option> 
+						<option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option> 
+						<option value="Swaziland">Swaziland</option> 
+						<option value="Sweden">Sweden</option> 
+						<option value="Switzerland">Switzerland</option> 
+						<option value="Syrian Arab Republic">Syrian Arab Republic</option> 
+						<option value="Taiwan, Province of China">Taiwan, Province of China</option> 
+						<option value="Tajikistan">Tajikistan</option> 
+						<option value="Tanzania, United Republic of">Tanzania, United Republic of</option> 
+						<option value="Thailand">Thailand</option> 
+						<option value="Timor-leste">Timor-leste</option> 
+						<option value="Togo">Togo</option> 
+						<option value="Tokelau">Tokelau</option> 
+						<option value="Tonga">Tonga</option> 
+						<option value="Trinidad and Tobago">Trinidad and Tobago</option> 
+						<option value="Tunisia">Tunisia</option> 
+						<option value="Turkey">Turkey</option> 
+						<option value="Turkmenistan">Turkmenistan</option> 
+						<option value="Turks and Caicos Islands">Turks and Caicos Islands</option> 
+						<option value="Tuvalu">Tuvalu</option> 
+						<option value="Uganda">Uganda</option> 
+						<option value="Ukraine">Ukraine</option> 
+						<option value="United Arab Emirates">United Arab Emirates</option> 
+						<option value="United Kingdom">United Kingdom</option> 
+						<option value="United States">United States</option> 
+						<option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option> 
+						<option value="Uruguay">Uruguay</option> 
+						<option value="Uzbekistan">Uzbekistan</option> 
+						<option value="Vanuatu">Vanuatu</option> 
+						<option value="Venezuela">Venezuela</option> 
+						<option value="Viet Nam">Viet Nam</option> 
+						<option value="Virgin Islands, British">Virgin Islands, British</option> 
+						<option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option> 
+						<option value="Wallis and Futuna">Wallis and Futuna</option> 
+						<option value="Western Sahara">Western Sahara</option> 
+						<option value="Yemen">Yemen</option> 
+						<option value="Zambia">Zambia</option> 
+						<option value="Zimbabwe">Zimbabwe</option>
+					</select>
+					<select name="state" id="selectstate"> 
+						<option value="XX" selected="selected">Select a State</option> 
+						<option value="AL">Alabama</option> 
+						<option value="AK">Alaska</option> 
+						<option value="AZ">Arizona</option> 
+						<option value="AR">Arkansas</option> 
+						<option value="CA">California</option> 
+						<option value="CO">Colorado</option> 
+						<option value="CT">Connecticut</option> 
+						<option value="DE">Delaware</option> 
+						<option value="DC">District Of Columbia</option> 
+						<option value="FL">Florida</option> 
+						<option value="GA">Georgia</option> 
+						<option value="HI">Hawaii</option> 
+						<option value="ID">Idaho</option> 
+						<option value="IL">Illinois</option> 
+						<option value="IN">Indiana</option> 
+						<option value="IA">Iowa</option> 
+						<option value="KS">Kansas</option> 
+						<option value="KY">Kentucky</option> 
+						<option value="LA">Louisiana</option> 
+						<option value="ME">Maine</option> 
+						<option value="MD">Maryland</option> 
+						<option value="MA">Massachusetts</option> 
+						<option value="MI">Michigan</option> 
+						<option value="MN">Minnesota</option> 
+						<option value="MS">Mississippi</option> 
+						<option value="MO">Missouri</option> 
+						<option value="MT">Montana</option> 
+						<option value="NE">Nebraska</option> 
+						<option value="NV">Nevada</option> 
+						<option value="NH">New Hampshire</option> 
+						<option value="NJ">New Jersey</option> 
+						<option value="NM">New Mexico</option> 
+						<option value="NY">New York</option> 
+						<option value="NC">North Carolina</option> 
+						<option value="ND">North Dakota</option> 
+						<option value="OH">Ohio</option> 
+						<option value="OK">Oklahoma</option> 
+						<option value="OR">Oregon</option> 
+						<option value="PA">Pennsylvania</option> 
+						<option value="RI">Rhode Island</option> 
+						<option value="SC">South Carolina</option> 
+						<option value="SD">South Dakota</option> 
+						<option value="TN">Tennessee</option> 
+						<option value="TX">Texas</option> 
+						<option value="UT">Utah</option> 
+						<option value="VT">Vermont</option> 
+						<option value="VA">Virginia</option> 
+						<option value="WA">Washington</option> 
+						<option value="WV">West Virginia</option> 
+						<option value="WI">Wisconsin</option> 
+						<option value="WY">Wyoming</option>
+					</select>
+
+					<label for="url1">Web site:</label>
+					<input type="url" data-clear-btn="true" name="url1" id="url1" placeholder="your web site address" value="">
+
+					
+					<input type="submit" data-icon="check" data-iconpos="right" value="Save" id="saveaccountdata">
+					
+			</form>
+		</div>
+		<input id="reloadValue" type="hidden" name="reloadValue" value="" />		
+	
+	</div><!-- /content -->
+
+<!-- 	<div id="footerpage" data-role="footer" data-position="fixed">
+		<h4>Publicité</h4>
+	</div> --><!-- /footer -->
+
+</div><!-- /page -->
+
+<!-- 
+
+Services Help dialog 
+
+-->
+
+
+<div data-role="dialog" id="serviceshelp">
+
+
+	<div data-role="content">
+		<p><a href="#pageMyWorkspace">Back</a></p>
+		<div data-role="collapsible" data-inset="false" data-theme="a">
+			<h4>Français</h4>
+			<p>Votre inscription dans la base de données Art-Please (c) et l'affichage de 2 photos sont gratuits, mais l'affichage de votre N° de téléphone, de votre
+			site web et l'accès des utilisateurs au diaporama sont payants.
+			<br>
+			La souscription des services est valables 1 an à partir de la date d'achat.
+			<br>
+			Note : Les services sont entièrement gratuits pour les artistes.
+			
+			<h5>N° de téléphone</h5>
+			<img src="/img/help/serviceshelp-telavail.png"/><br>
+			En souscrivant à ce service, vous permettez aux utilisateurs de voir votre N° de téléphone<br>
+			<img src="/img/help/serviceshelp-tel.png"/><br>
+			
+			<h5>Adresse site web</h5>
+			<img src="/img/help/serviceshelp-urlavail.png"/><br>
+			En souscrivant à ce service, vous permettez aux utilisateurs de voir l'adresse de votre site web<br>
+			<img src="/img/help/serviceshelp-url.png"/><br>
+
+			<h5>Accès au diaporama</h5>
+			<img src="/img/help/serviceshelp-slideshowavail.png"/><br>
+			En souscrivant à ce service, vous permettez aux utilisateurs d'accéder au diaporama de 3 photos<br>
+			<img src="/img/help/serviceshelp-slideshow.png"/><br>
+			
+		</div>
+		<div data-role="collapsible" data-inset="false" data-theme="a">
+			<h4>English</h4>
+			<p>Subscription to the Art-Please (c) database and display of 2 pictures are free. But display of your telephone  number,
+			your web site address and the access to your slideshow by users are subject to fees.
+
+			<br>
+			Chargeable service subscription is valid for 1 year from the date of purchase.
+			<br>
+			Note : Services are free for artists.
+			
+			<h5>Telephone number</h5>
+			<img src="/img/help/serviceshelp-telavail.png"/><br>
+			If you subscribe to this service, users are to see your telephone number<br>
+			<img src="/img/help/serviceshelp-tel.png"/><br>
+			
+			<h5>Adresse site web</h5>
+			<img src="/img/help/serviceshelp-urlavail.png"/><br>
+			If you subscribe to this service, users are to see your web site address<br>
+			<img src="/img/help/serviceshelp-url.png"/><br>
+
+			<h5>Accès au diaporama</h5>
+			If you subscribe to this service, users are to access to your 3 pictures slideshow<br>
+			<img src="/img/help/serviceshelp-slideshow.png"/><br>
+		</div>		
+		<p><a href="#pageMyWorkspace">Back</a></p>
+	</div><!-- /content -->
+
+</div><!-- /dialog -->
+
+<!-- 
+
+Location Help dialog 
+
+-->
+
+<div data-role="dialog" id="locationhelp">
+
+
+	<div data-role="content">
+		<p><a href="#pageMyWorkspace">Back</a></p>
+		<div data-role="collapsible" data-inset="false" data-theme="a">
+			<h4>Français</h4>
+			<p>Afin d'être correctement trouvé lorsque qu'un utilisateur d'Art-PLease Nearby (c) fait une recherche dans les environs, il vous faut
+			enregistrer la longitude et la latitude de votre établissement dans les champs latitude et longitude.
+			
+			Si vous ne connaissez pas la longitude et la latitude de votre établissement vous pouvez les rechercher en cliquant sur le bouton "get lat and long"
+			<img src="/img/help/locationhelp-getlatlng.png"/><br>
+			Grace à cette fonctionnalité, notre site va rechercher votre latitude et longitude en se basant sur l'adresse que vous avez saisie lors de la
+			création de votre compte.
+			En cliquant sur le bouton "get lat and long" 2 cas peuvent se produire:
+			<ol>
+			<li>L'adresse que vous avez saisie lors de la création de votre compte est suffisement précise pour déterminer la latitude et la longitude sans
+			erreur. Dans ce cas les champs latitude et longitude sont remplis automatiquement.
+			</li>
+			<li>L'adresse que vous avez saisie ne nous permet pas de déterminer exactement votre latitude et longitude. Dans ce cas vous devrez choisir l'adresse 
+			qui vous correspond dans la liste déroulante placée juste en dessous du bouton "get lat and long"
+			</li>
+			</ol>
+			<img src="/img/help/locationhelp-getlatlngmult.png"/><br>
+			Une fois l'adresse choisie, le champ latitude et longitude sont remplis automatiquement.<br>
+			
+			Cliquez sur le bouton "Save" pour enregistrer votre latitude et longitude.
+			</p>
+		</div>
+		<div data-role="collapsible" data-inset="false" data-theme="a">
+			<h4>English</h4>
+			<p>In order to be correctly located by Art-Please Nearby (c) users, you have to enter your latitude and longitude 
+			in the dedicated fields.
+			
+			If you don't know what your latitude and longitude are, click on the "get lat anf long" button. 
+			<img src="/img/help/locationhelp-getlatlng.png"/><br>
+			Our site is to try to find your latitude and longitude based on the address you have entered when you have created your account.
+	
+			2 cases:
+			<ol>
+			<li>The address you have entered is precise enough to find your latitude and longitude. Then, the latitude and longitude fields
+			are to be filled automatically.
+			</li>
+			<li>The address you have entered is NOT precise enough to find your latitude and longitude. Then you have to select the best address
+			in the dropdown liste located below the the "get lat and long" button.
+					</li>
+			</ol>
+			<img src="/img/help/locationhelp-getlatlngmult.png"/><br>
+			Once you have selected the address, the latitude and longitude fields are to be filled automatically.
+			</p>
+		</div>		
+		<p><a href="#pageMyWorkspace">Back</a></p>
+	</div><!-- /content -->
+
+</div><!-- /dialog -->
+
+<!-- 
+
+Googleid Help dialog 
+
+-->
+
+<div data-role="dialog" id="googleidhelp">
+
+
+	<div data-role="content">
+		<p><a href="#pageMyWorkspace">Back</a></p>
+		<div data-role="collapsible" data-inset="false" data-theme="a">
+			<h4>Français</h4>
+			<p>Art-Please (c) utilise le service de géolocalisation Google. Il est donc important de pouvoir faire le lien entre les données que vous enregistrez
+			 dans la base de données Art-Please et Google. <br><br>Ce lien est fait par l'identifiant Google, appelé Google Id. <b>Sans lien, les données comme la description ou les photos, ne seront pas visibles
+			  dans l'application mobile Art-Please Nearby (c).</b><br><br>
+			 
+			 <u>Important</u> : Vous devez d'abord avoir récupéré, et sauvegardé, la latitude et la longitude de votre établissement avant de récupérer votre Google Id.
+			<br><br>
+			Pour récupérer votre Google Id cliquez sur le bouton 	<img src="img/help/buttongetgoogleid.png"/><br><br>
+			Dans la liste qui apparaît, sélectionnez votre établissement et cliquez sur le bouton "Select"<br>
+			<img src="img/help/buildgoogleidlist.png"/>
+			Le google id est récupéré et est affiché à l'écran <br><img src="img/help/googleid.png"/><br><br>
+			
+			N'oubliez pas de cliquer sur le bouton "Save" pour terminer la récupération.
+			
+			</p>
+		</div>
+		<div data-role="collapsible" data-inset="false" data-theme="a">
+			<h4>English</h4>
+			<p>Art-Please (c) uses the Google geolocation service. So it is very important to make a link between data stored in the Art-Please database and Google
+			<br><br>This link is made by using the Google ID. <b>Without link, data such as description or pictures won't be visible in the Art-Please Nearby (c) mobile app.</b><br><br>
+			 
+			 <u>Important</u> : You must have get and saved your latitude and longitude before getting your Google Id.
+			<br><br>
+			To get your google id click on <img src="img/help/buttongetgoogleid.png"/><br><br>
+			In the displayed list, select your plant and click on "Select" button<br>
+			<img src="img/help/buildgoogleidlist.png"/>
+			Your Google Id is displayed on the main screen <br><img src="img/help/googleid.png"/><br><br>
+			
+			Don't forget to click on "Save" button!
+			</p>
+		</div>		
+		<p><a href="#pageMyWorkspace">Back</a></p>
+	</div><!-- /content -->
+
+</div><!-- /dialog -->
+
+
+<!-- 
+
+Your services Help video dialog 
+
+-->
+
+<div data-role="dialog" id="serviceshelpvideo">
+
+
+	<div data-role="content">
+		<p><a href="#pageMyWorkspace">Back</a></p>
+			<video width="100%" height="100%" controls="controls">
+			  <source src="video/services.mp4" type="video/mp4" />
+			  MP4 format is not supported by your internet browser
+			</video>	
+		<p><a href="#pageMyWorkspace">Back</a></p>
+	</div><!-- /content -->
+
+</div><!-- /dialog -->
+
+<!-- 
+
+Latlong Help video dialog 
+
+-->
+
+<div data-role="dialog" id="latlonghelpvideo">
+
+
+	<div data-role="content">
+		<p><a href="#pageMyWorkspace">Back</a></p>
+			<video width="100%" height="100%" controls="controls">
+			  <source src="video/latlong.mp4" type="video/mp4" />
+			  MP4 format is not supported by your internet browser
+			</video>	
+		<p><a href="#pageMyWorkspace">Back</a></p>
+	</div><!-- /content -->
+
+</div><!-- /dialog -->
+
+<!-- 
+
+Googleid Help video dialog 
+
+-->
+
+<div data-role="dialog" id="googleidhelpvideo">
+
+
+	<div data-role="content">
+		<p><a href="#pageMyWorkspace">Back</a></p>
+			<video width="100%" height="100%" controls="controls">
+			  <source src="video/googleid.mp4" type="video/mp4" />
+			  MP4 format is not supported by your internet browser
+			</video>	
+		<p><a href="#pageMyWorkspace">Back</a></p>
+	</div><!-- /content -->
+
+</div><!-- /dialog -->
+
+
+<!-- 
+
+Description Help video dialog 
+
+-->
+
+<div data-role="dialog" id="descriptionhelpvideo">
+
+
+	<div data-role="content">
+		<p><a href="#pageMyWorkspace">Back</a></p>
+			<video width="100%" height="100%" controls="controls">
+			  <source src="video/description.mp4" type="video/mp4" />
+			  MP4 format is not supported by your internet browser
+			</video>	
+		<p><a href="#pageMyWorkspace">Back</a></p>
+	</div><!-- /content -->
+
+</div><!-- /dialog -->
+
+<!-- 
+
+Pictures in the description Help video dialog 
+
+-->
+
+<div data-role="dialog" id="pictureshelpvideo">
+
+
+	<div data-role="content">
+		<p><a href="#pageMyWorkspace">Back</a></p>
+			<video width="100%" height="100%" controls="controls">
+			  <source src="video/pictures.mp4" type="video/mp4" />
+			  MP4 format is not supported by your internet browser
+			</video>	
+		<p><a href="#pageMyWorkspace">Back</a></p>
+	</div><!-- /content -->
+
+</div><!-- /dialog -->
+
+<!-- 
+
+Your slideshow Help video dialog 
+
+-->
+
+<div data-role="dialog" id="slideshowhelpvideo">
+
+
+	<div data-role="content">
+		<p><a href="#pageMyWorkspace">Back</a></p>
+			<video width="100%" height="100%" controls="controls">
+			  <source src="video/slideshow.mp4" type="video/mp4" />
+			  MP4 format is not supported by your internet browser
+			</video>	
+		<p><a href="#pageMyWorkspace">Back</a></p>
+	</div><!-- /content -->
+
+</div><!-- /dialog -->
+
+<!-- 
+
+Your events Help video dialog 
+
+-->
+
+<div data-role="dialog" id="youreventshelpvideo">
+
+
+	<div data-role="content">
+		<p><a href="#pageMyWorkspace">Back</a></p>
+			<video width="100%" height="100%" controls="controls">
+			  <source src="video/events.mp4" type="video/mp4" />
+			  MP4 format is not supported by your internet browser
+			</video>	
+		<p><a href="#pageMyWorkspace">Back</a></p>
+	</div><!-- /content -->
+
+</div><!-- /dialog -->
+
+<!-- 
+
+Add an event dialog 
+
+-->
+
+
+<div data-role="dialog" id="addanevent">
+
+
+	<div data-role="content">
+		<p><a href="#pageMyWorkspace">Back</a></p>
+		<p>Search the event you want to add, enter the activation code provided and click on "Add this event" </p>
+		<form id="searcheventform">
+			<label for="cityinput">City:</label>
+			<input type="text" name="cityeventinput" id="cityeventinput" placeholder="city where the event takes place" value=""/>
+			<select name="eventcountry" id="selecteventcountry" placeholder="Select Country"> 
+				<option value="" selected="selected">Select Country</option>
+				<option value="Afghanistan">Afghanistan</option> 
+				<option value="Albania">Albania</option> 
+				<option value="Algeria">Algeria</option> 
+				<option value="American Samoa">American Samoa</option> 
+				<option value="Andorra">Andorra</option> 
+				<option value="Angola">Angola</option> 
+				<option value="Anguilla">Anguilla</option> 
+				<option value="Antarctica">Antarctica</option> 
+				<option value="Antigua and Barbuda">Antigua and Barbuda</option> 
+				<option value="Argentina">Argentina</option> 
+				<option value="Armenia">Armenia</option> 
+				<option value="Aruba">Aruba</option> 
+				<option value="Australia">Australia</option> 
+				<option value="Austria">Austria</option> 
+				<option value="Azerbaijan">Azerbaijan</option> 
+				<option value="Bahamas">Bahamas</option> 
+				<option value="Bahrain">Bahrain</option> 
+				<option value="Bangladesh">Bangladesh</option> 
+				<option value="Barbados">Barbados</option> 
+				<option value="Belarus">Belarus</option> 
+				<option value="Belgium">Belgium</option> 
+				<option value="Belize">Belize</option> 
+				<option value="Benin">Benin</option> 
+				<option value="Bermuda">Bermuda</option> 
+				<option value="Bhutan">Bhutan</option> 
+				<option value="Bolivia">Bolivia</option> 
+				<option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option> 
+				<option value="Botswana">Botswana</option> 
+				<option value="Bouvet Island">Bouvet Island</option> 
+				<option value="Brazil">Brazil</option> 
+				<option value="British Indian Ocean Territory">British Indian Ocean Territory</option> 
+				<option value="Brunei Darussalam">Brunei Darussalam</option> 
+				<option value="Bulgaria">Bulgaria</option> 
+				<option value="Burkina Faso">Burkina Faso</option> 
+				<option value="Burundi">Burundi</option> 
+				<option value="Cambodia">Cambodia</option> 
+				<option value="Cameroon">Cameroon</option> 
+				<option value="Canada">Canada</option> 
+				<option value="Cape Verde">Cape Verde</option> 
+				<option value="Cayman Islands">Cayman Islands</option> 
+				<option value="Central African Republic">Central African Republic</option> 
+				<option value="Chad">Chad</option> 
+				<option value="Chile">Chile</option> 
+				<option value="China">China</option> 
+				<option value="Christmas Island">Christmas Island</option> 
+				<option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option> 
+				<option value="Colombia">Colombia</option> 
+				<option value="Comoros">Comoros</option> 
+				<option value="Congo">Congo</option> 
+				<option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option> 
+				<option value="Cook Islands">Cook Islands</option> 
+				<option value="Costa Rica">Costa Rica</option> 
+				<option value="Cote D'ivoire">Cote D'ivoire</option> 
+				<option value="Croatia">Croatia</option> 
+				<option value="Cuba">Cuba</option> 
+				<option value="Cyprus">Cyprus</option> 
+				<option value="Czech Republic">Czech Republic</option> 
+				<option value="Denmark">Denmark</option> 
+				<option value="Djibouti">Djibouti</option> 
+				<option value="Dominica">Dominica</option> 
+				<option value="Dominican Republic">Dominican Republic</option> 
+				<option value="Ecuador">Ecuador</option> 
+				<option value="Egypt">Egypt</option> 
+				<option value="El Salvador">El Salvador</option> 
+				<option value="Equatorial Guinea">Equatorial Guinea</option> 
+				<option value="Eritrea">Eritrea</option> 
+				<option value="Estonia">Estonia</option> 
+				<option value="Ethiopia">Ethiopia</option> 
+				<option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option> 
+				<option value="Faroe Islands">Faroe Islands</option> 
+				<option value="Fiji">Fiji</option> 
+				<option value="Finland">Finland</option> 
+				<option value="France">France</option> 
+				<option value="French Guiana">French Guiana</option> 
+				<option value="French Polynesia">French Polynesia</option> 
+				<option value="French Southern Territories">French Southern Territories</option> 
+				<option value="Gabon">Gabon</option> 
+				<option value="Gambia">Gambia</option> 
+				<option value="Georgia">Georgia</option> 
+				<option value="Germany">Germany</option> 
+				<option value="Ghana">Ghana</option> 
+				<option value="Gibraltar">Gibraltar</option> 
+				<option value="Greece">Greece</option> 
+				<option value="Greenland">Greenland</option> 
+				<option value="Grenada">Grenada</option> 
+				<option value="Guadeloupe">Guadeloupe</option> 
+				<option value="Guam">Guam</option> 
+				<option value="Guatemala">Guatemala</option> 
+				<option value="Guinea">Guinea</option> 
+				<option value="Guinea-bissau">Guinea-bissau</option> 
+				<option value="Guyana">Guyana</option> 
+				<option value="Haiti">Haiti</option> 
+				<option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option> 
+				<option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option> 
+				<option value="Honduras">Honduras</option> 
+				<option value="Hong Kong">Hong Kong</option> 
+				<option value="Hungary">Hungary</option> 
+				<option value="Iceland">Iceland</option> 
+				<option value="India">India</option> 
+				<option value="Indonesia">Indonesia</option> 
+				<option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option> 
+				<option value="Iraq">Iraq</option> 
+				<option value="Ireland">Ireland</option> 
+				<option value="Israel">Israel</option> 
+				<option value="Italy">Italy</option> 
+				<option value="Jamaica">Jamaica</option> 
+				<option value="Japan">Japan</option> 
+				<option value="Jordan">Jordan</option> 
+				<option value="Kazakhstan">Kazakhstan</option> 
+				<option value="Kenya">Kenya</option> 
+				<option value="Kiribati">Kiribati</option> 
+				<option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option> 
+				<option value="Korea, Republic of">Korea, Republic of</option> 
+				<option value="Kuwait">Kuwait</option> 
+				<option value="Kyrgyzstan">Kyrgyzstan</option> 
+				<option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option> 
+				<option value="Latvia">Latvia</option> 
+				<option value="Lebanon">Lebanon</option> 
+				<option value="Lesotho">Lesotho</option> 
+				<option value="Liberia">Liberia</option> 
+				<option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option> 
+				<option value="Liechtenstein">Liechtenstein</option> 
+				<option value="Lithuania">Lithuania</option> 
+				<option value="Luxembourg">Luxembourg</option> 
+				<option value="Macao">Macao</option> 
+				<option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option> 
+				<option value="Madagascar">Madagascar</option> 
+				<option value="Malawi">Malawi</option> 
+				<option value="Malaysia">Malaysia</option> 
+				<option value="Maldives">Maldives</option> 
+				<option value="Mali">Mali</option> 
+				<option value="Malta">Malta</option> 
+				<option value="Marshall Islands">Marshall Islands</option> 
+				<option value="Martinique">Martinique</option> 
+				<option value="Mauritania">Mauritania</option> 
+				<option value="Mauritius">Mauritius</option> 
+				<option value="Mayotte">Mayotte</option> 
+				<option value="Mexico">Mexico</option> 
+				<option value="Micronesia, Federated States of">Micronesia, Federated States of</option> 
+				<option value="Moldova, Republic of">Moldova, Republic of</option> 
+				<option value="Monaco">Monaco</option> 
+				<option value="Mongolia">Mongolia</option> 
+				<option value="Montserrat">Montserrat</option> 
+				<option value="Morocco">Morocco</option> 
+				<option value="Mozambique">Mozambique</option> 
+				<option value="Myanmar">Myanmar</option> 
+				<option value="Namibia">Namibia</option> 
+				<option value="Nauru">Nauru</option> 
+				<option value="Nepal">Nepal</option> 
+				<option value="Netherlands">Netherlands</option> 
+				<option value="Netherlands Antilles">Netherlands Antilles</option> 
+				<option value="New Caledonia">New Caledonia</option> 
+				<option value="New Zealand">New Zealand</option> 
+				<option value="Nicaragua">Nicaragua</option> 
+				<option value="Niger">Niger</option> 
+				<option value="Nigeria">Nigeria</option> 
+				<option value="Niue">Niue</option> 
+				<option value="Norfolk Island">Norfolk Island</option> 
+				<option value="Northern Mariana Islands">Northern Mariana Islands</option> 
+				<option value="Norway">Norway</option> 
+				<option value="Oman">Oman</option> 
+				<option value="Pakistan">Pakistan</option> 
+				<option value="Palau">Palau</option> 
+				<option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option> 
+				<option value="Panama">Panama</option> 
+				<option value="Papua New Guinea">Papua New Guinea</option> 
+				<option value="Paraguay">Paraguay</option> 
+				<option value="Peru">Peru</option> 
+				<option value="Philippines">Philippines</option> 
+				<option value="Pitcairn">Pitcairn</option> 
+				<option value="Poland">Poland</option> 
+				<option value="Portugal">Portugal</option> 
+				<option value="Puerto Rico">Puerto Rico</option> 
+				<option value="Qatar">Qatar</option> 
+				<option value="Reunion">Reunion</option> 
+				<option value="Romania">Romania</option> 
+				<option value="Russian Federation">Russian Federation</option> 
+				<option value="Rwanda">Rwanda</option> 
+				<option value="Saint Helena">Saint Helena</option> 
+				<option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option> 
+				<option value="Saint Lucia">Saint Lucia</option> 
+				<option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option> 
+				<option value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option> 
+				<option value="Samoa">Samoa</option> 
+				<option value="San Marino">San Marino</option> 
+				<option value="Sao Tome and Principe">Sao Tome and Principe</option> 
+				<option value="Saudi Arabia">Saudi Arabia</option> 
+				<option value="Senegal">Senegal</option> 
+				<option value="Serbia and Montenegro">Serbia and Montenegro</option> 
+				<option value="Seychelles">Seychelles</option> 
+				<option value="Sierra Leone">Sierra Leone</option> 
+				<option value="Singapore">Singapore</option> 
+				<option value="Slovakia">Slovakia</option> 
+				<option value="Slovenia">Slovenia</option> 
+				<option value="Solomon Islands">Solomon Islands</option> 
+				<option value="Somalia">Somalia</option> 
+				<option value="South Africa">South Africa</option> 
+				<option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option> 
+				<option value="Spain">Spain</option> 
+				<option value="Sri Lanka">Sri Lanka</option> 
+				<option value="Sudan">Sudan</option> 
+				<option value="Suriname">Suriname</option> 
+				<option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option> 
+				<option value="Swaziland">Swaziland</option> 
+				<option value="Sweden">Sweden</option> 
+				<option value="Switzerland">Switzerland</option> 
+				<option value="Syrian Arab Republic">Syrian Arab Republic</option> 
+				<option value="Taiwan, Province of China">Taiwan, Province of China</option> 
+				<option value="Tajikistan">Tajikistan</option> 
+				<option value="Tanzania, United Republic of">Tanzania, United Republic of</option> 
+				<option value="Thailand">Thailand</option> 
+				<option value="Timor-leste">Timor-leste</option> 
+				<option value="Togo">Togo</option> 
+				<option value="Tokelau">Tokelau</option> 
+				<option value="Tonga">Tonga</option> 
+				<option value="Trinidad and Tobago">Trinidad and Tobago</option> 
+				<option value="Tunisia">Tunisia</option> 
+				<option value="Turkey">Turkey</option> 
+				<option value="Turkmenistan">Turkmenistan</option> 
+				<option value="Turks and Caicos Islands">Turks and Caicos Islands</option> 
+				<option value="Tuvalu">Tuvalu</option> 
+				<option value="Uganda">Uganda</option> 
+				<option value="Ukraine">Ukraine</option> 
+				<option value="United Arab Emirates">United Arab Emirates</option> 
+				<option value="United Kingdom">United Kingdom</option> 
+				<option value="United States">United States</option> 
+				<option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option> 
+				<option value="Uruguay">Uruguay</option> 
+				<option value="Uzbekistan">Uzbekistan</option> 
+				<option value="Vanuatu">Vanuatu</option> 
+				<option value="Venezuela">Venezuela</option> 
+				<option value="Viet Nam">Viet Nam</option> 
+				<option value="Virgin Islands, British">Virgin Islands, British</option> 
+				<option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option> 
+				<option value="Wallis and Futuna">Wallis and Futuna</option> 
+				<option value="Western Sahara">Western Sahara</option> 
+				<option value="Yemen">Yemen</option> 
+				<option value="Zambia">Zambia</option> 
+				<option value="Zimbabwe">Zimbabwe</option>
+			</select>
+			<select name="eventstate" id="selecteventstate"> 
+						<option value="XX" selected="selected">Select a State</option> <!-- keep default value to XX. It is necessary for a good working of the getevents web service -->
+						<option value="AL">Alabama</option> 
+						<option value="AK">Alaska</option> 
+						<option value="AZ">Arizona</option> 
+						<option value="AR">Arkansas</option> 
+						<option value="CA">California</option> 
+						<option value="CO">Colorado</option> 
+						<option value="CT">Connecticut</option> 
+						<option value="DE">Delaware</option> 
+						<option value="DC">District Of Columbia</option> 
+						<option value="FL">Florida</option> 
+						<option value="GA">Georgia</option> 
+						<option value="HI">Hawaii</option> 
+						<option value="ID">Idaho</option> 
+						<option value="IL">Illinois</option> 
+						<option value="IN">Indiana</option> 
+						<option value="IA">Iowa</option> 
+						<option value="KS">Kansas</option> 
+						<option value="KY">Kentucky</option> 
+						<option value="LA">Louisiana</option> 
+						<option value="ME">Maine</option> 
+						<option value="MD">Maryland</option> 
+						<option value="MA">Massachusetts</option> 
+						<option value="MI">Michigan</option> 
+						<option value="MN">Minnesota</option> 
+						<option value="MS">Mississippi</option> 
+						<option value="MO">Missouri</option> 
+						<option value="MT">Montana</option> 
+						<option value="NE">Nebraska</option> 
+						<option value="NV">Nevada</option> 
+						<option value="NH">New Hampshire</option> 
+						<option value="NJ">New Jersey</option> 
+						<option value="NM">New Mexico</option> 
+						<option value="NY">New York</option> 
+						<option value="NC">North Carolina</option> 
+						<option value="ND">North Dakota</option> 
+						<option value="OH">Ohio</option> 
+						<option value="OK">Oklahoma</option> 
+						<option value="OR">Oregon</option> 
+						<option value="PA">Pennsylvania</option> 
+						<option value="RI">Rhode Island</option> 
+						<option value="SC">South Carolina</option> 
+						<option value="SD">South Dakota</option> 
+						<option value="TN">Tennessee</option> 
+						<option value="TX">Texas</option> 
+						<option value="UT">Utah</option> 
+						<option value="VT">Vermont</option> 
+						<option value="VA">Virginia</option> 
+						<option value="WA">Washington</option> 
+						<option value="WV">West Virginia</option> 
+						<option value="WI">Wisconsin</option> 
+						<option value="WY">Wyoming</option>
+					</select>
+			<br>
+			<label id="alleventsnumber">Search result:</label>
+			<select name="searcheventsresult" id="searcheventsresult">
+			</select>
+			<a href="#" data-role="button" onClick='searchevents()' id='searchevents'>Search events</a>
+			<br>
+			<label for="activationcode-form">Activation code:</label>
+			<input type="text" name="activationcodeinput" id="activationcodeinput" placeholder="" value=""/>
+			<a href="#" data-role="button" onClick='addeventtouser()' id='addeventtouser'>Add event</a>
+		</form>
+		
+		<p><a href="#pageMyWorkspace">Back</a></p>
+	</div><!-- /content -->
+
+</div><!-- /dialog -->
+
+</body>
+
+ </html>
